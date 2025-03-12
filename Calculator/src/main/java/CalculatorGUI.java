@@ -14,15 +14,18 @@ public class CalculatorGUI extends JFrame implements ActionListener {
     private double num2;
     private char operator;
     double result;
+    Math mathoperations = new Math();
 
     CalculatorGUI() {
 
 
         // ---------- OutputPanel -------------
         Panel outputPanel = new Panel();
-        outputPanel.setBackground(Color.GRAY);
+        outputPanel.setBackground(new Color(28, 28, 28));
         outputPanel.setLayout(null);
         outputPanel.setBounds(0, 0, 410, 150);
+        outputPanel.setBackground(Color.decode("#333333"));
+
 
 
         TextBar = new JTextField();
@@ -136,23 +139,23 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
             switch (operator) {
                 case '+':
-                    result = num1 + num2;
+                    result = mathoperations.addition(num1,num2);
                     TextBar.setText(String.valueOf(result));
                     break;
                 case '-':
-                    result = num1 - num2;
+                    result = mathoperations.subtraction(num1,num2);
                     TextBar.setText(String.valueOf(result));
                     break;
                 case '*':
-                    result = num1 * num2;
+                    result = mathoperations.multiplication(num1,num2);
                     TextBar.setText(String.valueOf(result));
                     break;
                 case '/':
-                    if (num2 == 0.0) {
+                    if (num2 == 0) {
                         TextBar.setText("ERROR!");
                         break;
                     }
-                    result = num1 / num2;
+                    result = mathoperations.division(num1,num2);
                     TextBar.setText(String.valueOf(result));
                     break;
             }
