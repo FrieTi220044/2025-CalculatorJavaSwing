@@ -29,25 +29,31 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
 
         TextBar = new JTextField();
-        TextBar.setBackground(Color.WHITE);
+        TextBar.setBackground(new Color(240, 240, 240));
         TextBar.setBounds(75, 40, 260, 70);
-        TextBar.setFont(new Font("Arial", Font.BOLD, 25)); // Größere Schrift
-        TextBar.setHorizontalAlignment(JTextField.RIGHT); // Text rechtsbündig für Taschenrechner
+        TextBar.setFont(new Font("Segoe UI", Font.PLAIN, 30));
+        TextBar.setHorizontalAlignment(JTextField.RIGHT);
+        TextBar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add padding inside text field
 
         outputPanel.add(TextBar);
         // ---------- OutputPanel -------------
 
         // ---------- OperatorsPanel -------------
         Panel operatorPanel = new Panel();
-        operatorPanel.setBackground(Color.darkGray);
         operatorPanel.setBounds(255,155,150,455);
         operatorPanel.setLayout(new GridLayout(6, 1, 5, 5));
+        operatorPanel.setBackground(new Color(56, 56, 56)); // Dark background
 
         // Operatoren hinzufügen
         String[] operators = {"+", "-", "*", "/", "=", "Clear"};
         for (int i = 0; i < operators.length; i++) {
             operatorButtons[i] = new JButton(operators[i]);
-            operatorButtons[i].setFont(new Font("Arial", Font.BOLD, 24));
+            operatorButtons[i].setFont(new Font("Segoe UI", Font.PLAIN, 24));
+            operatorButtons[i].setFocusPainted(false);
+            operatorButtons[i].setBackground(new Color(74, 74, 74)); // Dark background for operators
+            operatorButtons[i].setForeground(Color.WHITE);
+            operatorButtons[i].setBorder(BorderFactory.createLineBorder(new Color(40, 40, 40), 2));
+            operatorButtons[i].setPreferredSize(new Dimension(70, 70)); // Larger buttons
             operatorButtons[i].addActionListener(this);
             operatorPanel.add(operatorButtons[i]);
         }
@@ -56,39 +62,60 @@ public class CalculatorGUI extends JFrame implements ActionListener {
 
         // ---------- InputPanel -------------
         Panel inputPanel = new Panel();
-        inputPanel.setBackground(Color.black);
-        inputPanel.setBounds(0,155,250,455);
+        inputPanel.setBounds(0, 155, 250, 455);
         inputPanel.setLayout(new GridLayout(4, 3, 5, 5));
+        inputPanel.setBackground(new Color(28, 28, 28)); // Dark background for input panel
 
         for (int i = 1; i <= 9; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
-            numberButtons[i].setFont(new Font("Arial", Font.BOLD, 24));
+            numberButtons[i].setFont(new Font("Segoe UI", Font.PLAIN, 24));
+            numberButtons[i].setFocusPainted(false);
+            numberButtons[i].setBackground(new Color(58, 58, 58)); // Darker button color
+            numberButtons[i].setForeground(Color.WHITE);
+            numberButtons[i].setBorder(BorderFactory.createLineBorder(new Color(40, 40, 40), 2));
+            numberButtons[i].setPreferredSize(new Dimension(70, 70)); // Larger buttons
             numberButtons[i].addActionListener(this);
             inputPanel.add(numberButtons[i]);
         }
 
         // (-) Button
         negButton = new JButton("(-)");
-        negButton.setFont(new Font("Arial", Font.BOLD, 24));
+        negButton.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+        negButton.setFocusPainted(false);
+        negButton.setBackground(new Color(58, 58, 58));
+        negButton.setForeground(Color.WHITE);
+        negButton.setBorder(BorderFactory.createLineBorder(new Color(40, 40, 40), 2));
+        negButton.setPreferredSize(new Dimension(70, 70));
         negButton.addActionListener(this);
         inputPanel.add(negButton);
 
         // 0 Button
         numberButtons[0] = new JButton("0");
-        numberButtons[0].setFont(new Font("Arial", Font.BOLD, 24));
+        numberButtons[0].setFont(new Font("Segoe UI", Font.PLAIN, 24));
+        numberButtons[0].setFocusPainted(false);
+        numberButtons[0].setBackground(new Color(58, 58, 58));
+        numberButtons[0].setForeground(Color.WHITE);
+        numberButtons[0].setBorder(BorderFactory.createLineBorder(new Color(40, 40, 40), 2));
+        numberButtons[0].setPreferredSize(new Dimension(70, 70));
         numberButtons[0].addActionListener(this);
         inputPanel.add(numberButtons[0]);
 
+
         // . Button
         decimalButton = new JButton(".");
-        decimalButton.setFont(new Font("Arial", Font.BOLD, 24));
+        decimalButton.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+        decimalButton.setFocusPainted(false);
+        decimalButton.setBackground(new Color(58, 58, 58));
+        decimalButton.setForeground(Color.WHITE);
+        decimalButton.setBorder(BorderFactory.createLineBorder(new Color(40, 40, 40), 2));
+        decimalButton.setPreferredSize(new Dimension(70, 70));
         decimalButton.addActionListener(this);
         inputPanel.add(decimalButton);
 
         // ---------- FRAME -------------
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
-        this.getContentPane().setBackground(Color.BLACK);
+        this.getContentPane().setBackground(new Color(22, 22, 22));
         this.add(outputPanel);
         this.add(operatorPanel);
         this.add(inputPanel);
