@@ -193,11 +193,12 @@ public class CalculatorGUI extends JFrame implements ActionListener {
             num1 = 0;
             num2 = 0;
             TextBar.setText("");
+            operator = ' ';
         }
 
         if (e.getSource() == negButton) {
             if (TextBar.getText().isEmpty()) {
-                throw new NumberFormatException("negated without a Number!");
+                return;
             }
 
             double temp = Double.parseDouble(TextBar.getText());
