@@ -34,6 +34,7 @@ public class CalculatorGUI extends JFrame implements ActionListener {
         TextBar.setFont(new Font("Segoe UI", Font.PLAIN, 30));
         TextBar.setHorizontalAlignment(JTextField.RIGHT);
         TextBar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add padding inside text field
+        TextBar.setEditable(false);
 
         outputPanel.add(TextBar);
         // ---------- OutputPanel -------------
